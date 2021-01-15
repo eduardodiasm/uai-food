@@ -22,7 +22,10 @@
     "apollo-server": "^2.19.2",
     "apollo-server-express": "^2.19.2",
     "express": "^4.17.1",
-    "graphql": "^15.4.0"
+    "graphql": "^15.4.0",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

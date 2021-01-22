@@ -1,0 +1,87 @@
+directive @cacheControl(
+  maxAge: Int
+  scope: CacheControlScope
+) on FIELD_DEFINITION | OBJECT | INTERFACE
+# Exposes a URL that specifies the behaviour of this scalar.
+directive @specifiedBy(
+  # The URL that specifies the behaviour of this scalar.
+  url: String!
+) on SCALAR
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+scalar Date
+
+input FilterLocationInput {
+  latitude: Float
+  longitude: Float
+  range: Float
+}
+
+input FilterRestaurantsInput {
+  city: String
+  location: FilterLocationInput
+  culinaryType: String
+  item: String
+}
+
+type Item {
+  id: ID
+  name: String
+  description: String
+  price: Float
+  restaurant: ID
+  createdAt: Date
+  updatedAt: Date
+}
+
+input ItemInput {
+  name: String!
+  description: String
+  price: Float!
+  restaurant: ID!
+}
+
+input ItemUpdateInput {
+  name: String
+  description: String
+  price: Float
+}
+
+type Mutation {
+  _default: String
+  createRestaurant(restaurant: RestaurantInput): Restaurant
+  createItem(item: ItemInput): Item
+  updateItem(id: ID!, params: ItemUpdateInput!): Item
+}
+
+type Query {
+  _default: String
+  restaurants: [Restaurant]
+  filterRestaurants(query: FilterRestaurantsInput): [Restaurant]
+  items: [Item]
+}
+
+type Restaurant {
+  id: ID
+  name: String
+  city: String
+  culinaryType: String
+  location: [Float]
+  createdAt: Date
+  updatedAt: Date
+  items: [Item]
+}
+
+input RestaurantInput {
+  name: String!
+  city: String
+  culinaryType: String
+  location: [Float]
+}
+
+# The `Upload` scalar type represents a file upload.
+scalar Upload
+

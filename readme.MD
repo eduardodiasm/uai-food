@@ -20,7 +20,7 @@ $ npm run dev
 ```
 
 <h2>Acesso a API</h2>
-<p>Seguindo os passos anteriores para execução do projeto, agora você pode acessar a API de duas formas: no endpoint <i>http://localhost:3333</i>, via algum API Client de sua preferência (Insomnia, Postman, etc.) ou via playground no seu browser. <p>
+<p>Seguindo os passos anteriores para execução do projeto, você poderá agora acessar a API de duas formas: através da URL <i>http://localhost:3333</i> via algum API client de sua preferência (Insomnia, Postman, etc.) ou via playground no seu browser também pela mesma URL. <p>
 
 <h3>Exemplo de mutation executada via Playground</h3>
 <img style="margin-top: 20px" src="./docs/assets/playground.png" width="1000px">
